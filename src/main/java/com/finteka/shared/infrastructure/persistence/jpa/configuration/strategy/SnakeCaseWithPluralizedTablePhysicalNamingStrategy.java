@@ -1,4 +1,4 @@
-package shared.infraestructure.persistence.jpa.strategy;
+package com.finteka.shared.infrastructure.persistence.jpa.configuration.strategy;
 
 import org.hibernate.boot.model.naming.Identifier;
 import org.hibernate.boot.model.naming.PhysicalNamingStrategy;
@@ -6,7 +6,7 @@ import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
 
 import static io.github.encryptorcode.pluralize.Pluralize.pluralize;
 
-public class SnakeCasePhysicalNamingStrategy implements PhysicalNamingStrategy {
+public class SnakeCaseWithPluralizedTablePhysicalNamingStrategy implements PhysicalNamingStrategy {
     /**
      * @param identifier
      * @param jdbcEnvironment
@@ -84,4 +84,3 @@ public class SnakeCasePhysicalNamingStrategy implements PhysicalNamingStrategy {
     }
 
 }
-
