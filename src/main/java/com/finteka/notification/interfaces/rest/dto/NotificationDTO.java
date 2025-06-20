@@ -11,6 +11,9 @@ public class NotificationDTO {
     @JsonProperty("profesionalId")
     private Long profesionalId;
 
+    @JsonProperty("titulo")
+    private String titulo;
+
     @JsonProperty("mensaje")
     private String mensaje;
 
@@ -26,6 +29,7 @@ public class NotificationDTO {
         NotificationDTO dto = new NotificationDTO();
         dto.id = n.getId();
         dto.profesionalId = n.getProfesionalId();
+        dto.titulo = n.getTitulo();
         dto.mensaje = n.getMensaje();
         dto.fecha = n.getFecha();
         dto.leida = n.isLeida();
@@ -35,6 +39,7 @@ public class NotificationDTO {
     // Getters
     public Long getId() { return id; }
     public Long getProfesionalId() { return profesionalId; }
+    public String getTitulo() { return titulo; }
     public String getMensaje() { return mensaje; }
     public LocalDateTime getFecha() { return fecha; }
     public boolean isLeida() { return leida; }

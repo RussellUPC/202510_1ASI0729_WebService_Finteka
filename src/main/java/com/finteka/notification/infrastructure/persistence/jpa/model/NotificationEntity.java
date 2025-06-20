@@ -13,6 +13,9 @@ public class NotificationEntity {
     @Column(name = "profesional_id", nullable = false)
     private Long profesionalId;
 
+    @Column(name = "titulo", nullable = false)
+    private String titulo;
+
     @Column(name = "mensaje", nullable = false)
     private String mensaje;
 
@@ -27,6 +30,8 @@ public class NotificationEntity {
     public void setId(Long id) { this.id = id; }
     public Long getProfesionalId() { return profesionalId; }
     public void setProfesionalId(Long profesionalId) { this.profesionalId = profesionalId; }
+    public String getTitulo() { return titulo; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
     public String getMensaje() { return mensaje; }
     public void setMensaje(String mensaje) { this.mensaje = mensaje; }
     public LocalDateTime getFecha() { return fecha; }

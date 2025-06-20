@@ -4,15 +4,12 @@ import com.finteka.notification.domain.service.CreateNotificationService;
 import com.finteka.notification.domain.service.ListNotificationsService;
 import com.finteka.notification.domain.service.MarkNotificationReadService;
 import com.finteka.notification.interfaces.rest.dto.*;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "/api/notificaciones",
-        consumes = MediaType.APPLICATION_JSON_VALUE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/notificaciones")
 public class NotificationResource {
 
     private final ListNotificationsService listNotificationsService;
@@ -27,7 +24,7 @@ public class NotificationResource {
         this.markNotificationReadService = markNotificationReadService;
     }
 
-    @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping()
     public List<NotificationDTO> list(@RequestParam Long profesionalId) {
         return listNotificationsService.execute(profesionalId)
                 .stream()
@@ -35,15 +32,16 @@ public class NotificationResource {
                 .collect(Collectors.toList());
     }
 
-    @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping()
     public NotificationDTO create(@RequestBody CreateNotificationDTO dto) {
         return NotificationDTO.fromDomain(
                 createNotificationService.execute(dto.toDomain())
         );
     }
 
-    @PostMapping(path = "/{id}/read", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/{id}/read")
     public void markRead(@PathVariable Long id) {
         markNotificationReadService.execute(id);
     }
 }
+

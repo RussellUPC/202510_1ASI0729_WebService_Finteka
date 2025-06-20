@@ -17,13 +17,14 @@ public class JpaNotificationRepository implements NotificationRepository {
     @Override
     public List<Notification> findByProfesionalId(Long profesionalId) {
         return jpa.findByProfesionalId(profesionalId).stream()
-                .map(e -> new Notification(e.getId(), e.getProfesionalId(), e.getMensaje(), e.getFecha(), e.isLeida()))
+                .map(e -> new Notification(e.getId(), e.getProfesionalId(), e.getTitulo() , e.getMensaje(), e.getFecha(), e.isLeida()))
                 .toList();
     }
     @Override
     public Notification save(Notification notification) {
         NotificationEntity e = new NotificationEntity();
         e.setProfesionalId(notification.getProfesionalId());
+        e.setTitulo(notification.getTitulo());
         e.setMensaje(notification.getMensaje());
         e.setFecha(notification.getFecha());
         e.setLeida(notification.isLeida());
