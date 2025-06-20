@@ -11,4 +11,5 @@ public class FinTekaBackendApplication {
         SpringApplication.run(FinTekaBackendApplication.class, args);
     }
 
+
 }
