@@ -12,6 +12,7 @@ public class UpdateUserProfileUseCase {
     }
 
     public void execute(Long userId, String newName, String newEmail) {
+        System.out.println("[DEBUG] UpdateUserProfileUseCase.execute called with userId=" + userId + ", newName=" + newName + ", newEmail=" + newEmail);
         // Lógica para actualizar el perfil
     }
 }
